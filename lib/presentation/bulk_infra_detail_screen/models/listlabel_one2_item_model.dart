@@ -1,0 +1,1 @@
+class ListlabelOne2ItemModel {}
