@@ -11,21 +11,25 @@ class CustomBottomBar extends StatelessWidget {
       icon: ImageConstant.imgCategory,
       title: "lbl_assigned".tr,
       type: BottomBarEnum.Assigned,
+      route: AppRoutes.assignedPagePnbpTabContainerScreen,
     ),
     BottomMenuModel(
       icon: ImageConstant.imgCheckmark,
       title: "lbl_history".tr,
       type: BottomBarEnum.History,
+      route: AppRoutes.historiesScreen,
     ),
     BottomMenuModel(
       icon: ImageConstant.imgNotification,
       title: "lbl_notification".tr,
       type: BottomBarEnum.Notification,
+      route: AppRoutes.notificationsScreen,
     ),
     BottomMenuModel(
       icon: ImageConstant.imgUser,
       title: "lbl_user".tr,
       type: BottomBarEnum.User,
+      route: AppRoutes.userProfileScreen,
     )
   ];
 
@@ -116,6 +120,7 @@ class CustomBottomBar extends StatelessWidget {
           onTap: (index) {
             selectedIndex.value = index;
             onChanged!(bottomMenuList[index].type);
+            Navigator.of(context).pushNamed(bottomMenuList[index].route);
           },
         ),
       ),
@@ -131,13 +136,19 @@ enum BottomBarEnum {
 }
 
 class BottomMenuModel {
-  BottomMenuModel({required this.icon, this.title, required this.type});
+  BottomMenuModel(
+      {required this.icon,
+      this.title,
+      required this.type,
+      required this.route});
 
   String icon;
 
   String? title;
 
   BottomBarEnum type;
+
+  String route;
 }
 
 ///Set default widget when screen is not configured with bottom menu

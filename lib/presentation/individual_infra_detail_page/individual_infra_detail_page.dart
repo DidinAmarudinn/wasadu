@@ -51,21 +51,283 @@ class IndividualInfraDetailPage extends StatelessWidget {
                           textAlign: TextAlign.left,
                           style: AppStyle.txtRobotoRegular14
                               .copyWith(letterSpacing: 0.25, height: 1.00)))),
-              Obx(
-                () => ListView.builder(
-                  physics: NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: controller.individualInfraDetailModelObj.value
-                      .listlabel2ItemList.length,
-                  itemBuilder: (context, index) {
-                    Listlabel2ItemModel model = controller
-                        .individualInfraDetailModelObj
-                        .value
-                        .listlabel2ItemList[index];
-                    return Listlabel2ItemWidget(
-                      model,
-                    );
-                  },
+              Padding(
+                padding: getPadding(
+                  top: 6.550003,
+                  bottom: 6.550003,
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding: getPadding(
+                        bottom: 3,
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: getPadding(
+                              right: 10,
+                            ),
+                            child: Text(
+                              "lbl_pejabat".tr,
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.left,
+                              style: AppStyle.txtRobotoRegular16.copyWith(
+                                letterSpacing: 0.15,
+                                height: 1.00,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: getPadding(
+                              top: 6,
+                            ),
+                            child: Text(
+                              "lbl_gubernur".tr,
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.left,
+                              style: AppStyle.txtRobotoRegular14.copyWith(
+                                letterSpacing: 0.25,
+                                height: 1.00,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: getPadding(
+                        left: 113,
+                        top: 1,
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: getPadding(
+                              right: 10,
+                            ),
+                            child: Text(
+                              "lbl_nama_kabupaten".tr,
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.left,
+                              style: AppStyle.txtRobotoRegular16.copyWith(
+                                letterSpacing: 0.15,
+                                height: 1.00,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: getPadding(
+                              top: 7,
+                            ),
+                            child: Text(
+                              "msg_kab_malan_jab".tr,
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.left,
+                              style: AppStyle.txtRobotoRegular14.copyWith(
+                                letterSpacing: 0.25,
+                                height: 1.00,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: getPadding(
+                  top: 6.550003,
+                  bottom: 6.550003,
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding: getPadding(
+                        bottom: 3,
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: getPadding(
+                              right: 10,
+                            ),
+                            child: Text(
+                              "Nama Provinsi".tr,
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.left,
+                              style: AppStyle.txtRobotoRegular16.copyWith(
+                                letterSpacing: 0.15,
+                                height: 1.00,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: getPadding(
+                              top: 6,
+                            ),
+                            child: Text(
+                              "Jawa Timur".tr,
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.left,
+                              style: AppStyle.txtRobotoRegular14.copyWith(
+                                letterSpacing: 0.25,
+                                height: 1.00,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: getPadding(
+                        left: 75,
+                        top: 1,
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: getPadding(
+                              right: 10,
+                            ),
+                            child: Text(
+                              "Tahun Anggaran".tr,
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.left,
+                              style: AppStyle.txtRobotoRegular16.copyWith(
+                                letterSpacing: 0.15,
+                                height: 1.00,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: getPadding(
+                              top: 7,
+                            ),
+                            child: Text(
+                              "2020".tr,
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.left,
+                              style: AppStyle.txtRobotoRegular14.copyWith(
+                                letterSpacing: 0.25,
+                                height: 1.00,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: getPadding(
+                  top: 6.550003,
+                  bottom: 6.550003,
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding: getPadding(
+                        bottom: 3,
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: getPadding(
+                              right: 10,
+                            ),
+                            child: Text(
+                              "Nama Penyedia".tr,
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.left,
+                              style: AppStyle.txtRobotoRegular16.copyWith(
+                                letterSpacing: 0.15,
+                                height: 1.00,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: getPadding(
+                              top: 6,
+                            ),
+                            child: Text(
+                              "PT. WIKA".tr,
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.left,
+                              style: AppStyle.txtRobotoRegular14.copyWith(
+                                letterSpacing: 0.25,
+                                height: 1.00,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: getPadding(
+                        left: 70,
+                        top: 1,
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: getPadding(
+                              right: 10,
+                            ),
+                            child: Text(
+                              "PPK".tr,
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.left,
+                              style: AppStyle.txtRobotoRegular16.copyWith(
+                                letterSpacing: 0.15,
+                                height: 1.00,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: getPadding(
+                              top: 7,
+                            ),
+                            child: Text(
+                              "Irwanto".tr,
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.left,
+                              style: AppStyle.txtRobotoRegular14.copyWith(
+                                letterSpacing: 0.25,
+                                height: 1.00,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ),
               Padding(

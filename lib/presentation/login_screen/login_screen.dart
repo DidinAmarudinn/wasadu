@@ -1,3 +1,5 @@
+import 'package:shared_preferences/shared_preferences.dart';
+
 import 'controller/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:wasdu_mobile2/core/app_export.dart';
@@ -9,6 +11,12 @@ class LoginScreen extends GetWidget<LoginController> {
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
+  void initialize() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+
+    preferences = await SharedPreferences.getInstance();
+  }
+
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -24,6 +32,20 @@ class LoginScreen extends GetWidget<LoginController> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
+                  Padding(
+                      padding: getPadding(left: 24, top: 137, right: 24),
+                      child: CommonImageView(
+                          imagePath: ImageConstant.imgRectangle1,
+                          height: getVerticalSize(63.00),
+                          width: getHorizontalSize(327.00))),
+                  Container(
+                      width: getHorizontalSize(276.00),
+                      margin: getMargin(left: 24, top: 22, right: 24),
+                      child: Text("msg_mobile_data_col".tr.toUpperCase(),
+                          maxLines: null,
+                          textAlign: TextAlign.center,
+                          style: AppStyle.txtRobotoBold12
+                              .copyWith(letterSpacing: 1.25, height: 1.33))),
                   CustomTextFormField(
                     width: 315,
                     focusNode: FocusNode(),
@@ -31,7 +53,7 @@ class LoginScreen extends GetWidget<LoginController> {
                     hintText: "msg_masukkan_userna".tr,
                     margin: getMargin(
                       left: 30,
-                      top: 293,
+                      top: 120,
                       right: 30,
                     ),
                     variant: TextFormFieldVariant.OutlineBlack9006b,
@@ -48,7 +70,7 @@ class LoginScreen extends GetWidget<LoginController> {
                     width: 315,
                     focusNode: FocusNode(),
                     controller: controller.vinputslotOneController,
-                    hintText: "msg_masukkan_passwo".tr,
+                    hintText: "Masukkan Password".tr,
                     margin: getMargin(
                       left: 30,
                       top: 23,
@@ -57,13 +79,6 @@ class LoginScreen extends GetWidget<LoginController> {
                     variant: TextFormFieldVariant.OutlineBlack9006b,
                     padding: TextFormFieldPadding.PaddingAll12,
                     textInputAction: TextInputAction.done,
-                    validator: (value) {
-                      if (value == null ||
-                          (!isValidPassword(value, isRequired: true))) {
-                        return "Please enter valid password";
-                      }
-                      return null;
-                    },
                     isObscureText: true,
                   ),
                   CustomButton(

@@ -1,6 +1,8 @@
+import 'package:wasdu_mobile2/presentation/histories_screen/histories_screen.dart';
 import 'package:wasdu_mobile2/presentation/individual_infra_detail_page/individual_infra_detail_page.dart';
 import 'package:wasdu_mobile2/presentation/individual_infra_tab_container_screen/binding/individual_infra_tab_container_binding.dart';
 import 'package:wasdu_mobile2/presentation/individual_infra_tab_container_screen/individual_infra_tab_container_screen.dart';
+import 'package:wasdu_mobile2/presentation/notifications_screen/notifications_screen.dart';
 import 'package:wasdu_mobile2/presentation/splash_screen/splash_screen.dart';
 import 'package:wasdu_mobile2/presentation/splash_screen/binding/splash_binding.dart';
 import 'package:wasdu_mobile2/presentation/login_screen/login_screen.dart';
@@ -22,6 +24,7 @@ import 'package:wasdu_mobile2/presentation/assigned_page_detail_assets_bulk_inse
 import 'package:wasdu_mobile2/presentation/app_navigation_screen/app_navigation_screen.dart';
 import 'package:wasdu_mobile2/presentation/app_navigation_screen/binding/app_navigation_binding.dart';
 import 'package:get/get.dart';
+import 'package:wasdu_mobile2/presentation/user_profile_screen/user_profile_screen.dart';
 
 class AppRoutes {
   static String splashScreen = '/splash_screen';
@@ -53,6 +56,10 @@ class AppRoutes {
 
   static String individualInfraTabContainerScreen =
       '/individual_infra_tab_container_screen';
+
+  static String historiesScreen = '/histories_screen';
+  static String notificationsScreen = '/notifications_screen';
+  static String userProfileScreen = '/user_profile_screen';
 
   static List<GetPage> pages = [
     GetPage(
@@ -131,6 +138,18 @@ class AppRoutes {
       bindings: [
         IndividualInfraTabContainerBinding(),
       ],
+    ),
+    GetPage(
+      name: historiesScreen,
+      page: () => HistoriesScreen(),
+    ),
+    GetPage(
+      name: notificationsScreen,
+      page: () => NotificationsScreen(),
+    ),
+    GetPage(
+      name: userProfileScreen,
+      page: () => UserProfileScreen(),
     ),
     GetPage(
       name: initialRoute,

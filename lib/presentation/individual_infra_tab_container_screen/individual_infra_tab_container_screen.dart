@@ -29,10 +29,10 @@ class IndividualInfraTabContainerScreen
             labelColor: Color(0xff1976D2),
             tabs: [
               Tab(
-                text: "Detail".tr,
+                text: "DETAIL".tr,
               ),
               Tab(
-                text: "Infra List".tr,
+                text: "INFRA LIST".tr,
               ),
             ],
           ),
@@ -55,7 +55,7 @@ class IndividualInfraTabContainerScreen
                     right: 12,
                   ),
                   height: getVerticalSize(
-                    490.00,
+                    480.00,
                   ),
                   child: TabBarView(
                     children: [

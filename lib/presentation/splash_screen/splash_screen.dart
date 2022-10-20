@@ -39,10 +39,10 @@ class SplashScreen extends GetWidget<SplashController> {
                                   letterSpacing: 1.25, height: 1.33))),
                       CustomButton(
                           width: 295,
-                          text: "lbl_sign_in".tr.toUpperCase(),
+                          text: "MASUK".tr.toUpperCase(),
                           margin: getMargin(
                               left: 24, top: 171, right: 24, bottom: 20),
-                          variant: ButtonVariant.FillWhiteA700,
+                          variant: ButtonVariant.OutlineBlueA701,
                           padding: ButtonPadding.PaddingAll18,
                           fontStyle: ButtonFontStyle.RobotoMedium14,
                           onTap: onTapBtnSignin)

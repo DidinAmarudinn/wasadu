@@ -348,7 +348,7 @@ class AssignedPageDetailAssetsBulkInsertScreen
                                                           left: 33,
                                                           top: 27,
                                                           right: 27,
-                                                          bottom: 225),
+                                                          bottom: 190),
                                                       decoration: AppDecoration
                                                           .outlineBlack9003d
                                                           .copyWith(

@@ -11,6 +11,14 @@ class IndividualInfraDetailInfraListController extends GetxController {
   Rx<IndividualInfraDetailInfraListModel>
       individualInfraDetailInfraListModelObj;
 
+  List<String> conditions = <String>[
+    'A1 - Menyala Fisik Bagus',
+    'A2 - Menyala Fisik Kurang Bagus',
+    'A3 - Tidak Menyala Fisik Bagus',
+    'A4 - Tidak Menyala Fisik Tidak Bagus',
+    'A5 - Barang Tidak Ditemukan'
+  ];
+
   @override
   void onReady() {
     super.onReady();

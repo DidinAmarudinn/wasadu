@@ -374,28 +374,32 @@ class AssignedPageDetailPnbpScreen
                                                         letterSpacing: 0.25,
                                                         height: 1.00)))),
                                     Align(
-                                        alignment: Alignment.center,
-                                        child: Padding(
-                                            padding: getPadding(
-                                                left: 18, top: 26, right: 18),
-                                            child: Obx(() => ListView.builder(
-                                                physics:
-                                                    NeverScrollableScrollPhysics(),
-                                                shrinkWrap: true,
-                                                itemCount: controller
-                                                    .assignedPageDetailPnbpModelObj
-                                                    .value
-                                                    .listlabelEightItemList
-                                                    .length,
-                                                itemBuilder: (context, index) {
-                                                  ListlabelEightItemModel
-                                                      model = controller
-                                                          .assignedPageDetailPnbpModelObj
-                                                          .value
-                                                          .listlabelEightItemList[index];
-                                                  return ListlabelEightItemWidget(
-                                                      model);
-                                                })))),
+                                      alignment: Alignment.center,
+                                      child: Padding(
+                                        padding: getPadding(
+                                            left: 18, top: 26, right: 18),
+                                        child: Obx(
+                                          () => ListView.builder(
+                                            physics:
+                                                NeverScrollableScrollPhysics(),
+                                            shrinkWrap: true,
+                                            itemCount: controller
+                                                .assignedPageDetailPnbpModelObj
+                                                .value
+                                                .listlabelEightItemList
+                                                .length,
+                                            itemBuilder: (context, index) {
+                                              ListlabelEightItemModel model = controller
+                                                  .assignedPageDetailPnbpModelObj
+                                                  .value
+                                                  .listlabelEightItemList[index];
+                                              return ListlabelEightItemWidget(
+                                                  model);
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                    ),
                                     Align(
                                         alignment: Alignment.centerLeft,
                                         child: GestureDetector(
@@ -488,7 +492,7 @@ class AssignedPageDetailPnbpScreen
                     color: Colors.white),
                 padding: EdgeInsets.all(19),
                 width: MediaQuery.of(context).size.width * 0.88,
-                height: 700,
+                height: 680,
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
@@ -534,7 +538,7 @@ class AssignedPageDetailPnbpScreen
                           ),
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                                minimumSize: const Size(70, 48),
+                                minimumSize: const Size(50, 48),
                                 maximumSize: const Size(70, 48)),
                             onPressed: () {
                               showDatePicker(
@@ -581,7 +585,7 @@ class AssignedPageDetailPnbpScreen
                           ),
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                                minimumSize: const Size(70, 48),
+                                minimumSize: const Size(50, 48),
                                 maximumSize: const Size(70, 48)),
                             onPressed: () {
                               showDatePicker(
@@ -874,9 +878,11 @@ class AssignedPageDetailPnbpScreen
                           GridView.builder(
                               shrinkWrap: true,
                               gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 3,
-                              ),
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 3,
+                                      crossAxisSpacing: 4,
+                                      mainAxisSpacing: 10),
+                              padding: EdgeInsets.all(2),
                               itemCount: controller.files.length,
                               itemBuilder: (context, index) {
                                 return Image.file(
