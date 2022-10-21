@@ -1,4 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:wasdu_mobile2/presentation/assigned_page_pnbp_tab_container_screen/assigned_page_pnbp_tab_container_screen.dart';
+import 'package:wasdu_mobile2/services/AuthService.dart';
 
 import 'controller/login_controller.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +51,7 @@ class LoginScreen extends GetWidget<LoginController> {
                   CustomTextFormField(
                     width: 315,
                     focusNode: FocusNode(),
-                    controller: controller.vinputslotController,
+                    controller: controller.email,
                     hintText: "msg_masukkan_userna".tr,
                     margin: getMargin(
                       left: 30,
@@ -69,7 +71,7 @@ class LoginScreen extends GetWidget<LoginController> {
                   CustomTextFormField(
                     width: 315,
                     focusNode: FocusNode(),
-                    controller: controller.vinputslotOneController,
+                    controller: controller.password,
                     hintText: "Masukkan Password".tr,
                     margin: getMargin(
                       left: 30,
@@ -92,7 +94,7 @@ class LoginScreen extends GetWidget<LoginController> {
                       ),
                       variant: ButtonVariant.FillBlue700,
                       padding: ButtonPadding.PaddingAll15,
-                      onTap: onTapBtnLogin),
+                      onTap: () => onTapBtnLogin(context)),
                 ],
               ),
             ),
@@ -102,7 +104,13 @@ class LoginScreen extends GetWidget<LoginController> {
     );
   }
 
-  onTapBtnLogin() {
-    Get.toNamed(AppRoutes.assignedPagePnbpTabContainerScreen);
+  onTapBtnLogin(BuildContext context) async {
+    var result = await AuthService().login(
+        email: controller.email.text, password: controller.password.text);
+    if (result != null) {
+      Navigator.of(context).pop();
+      Navigator.of(context).pushNamedAndRemoveUntil(
+          AppRoutes.assignedPagePnbpTabContainerScreen, (route) => false);
+    }
   }
 }

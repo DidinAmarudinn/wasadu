@@ -1,3 +1,5 @@
+import 'package:wasdu_mobile2/services/PnbpService.dart';
+
 import '../assigned_page_pnbp_page/widgets/listlabel_item_widget.dart';
 import 'controller/assigned_page_pnbp_controller.dart';
 import 'models/assigned_page_pnbp_model.dart';
@@ -82,7 +84,12 @@ class AssignedPagePnbpPage extends StatelessWidget {
                       ])),
               Padding(
                 padding: getPadding(top: 16, right: 6),
-                child: Obx(
+                child:
+                    // FutureBuilder(
+                    //   future: PnbpService().index(per_page: '1000'),
+                    //   builder: (context, snapshot) {},
+                    // )
+                    Obx(
                   () => ListView.builder(
                     physics: BouncingScrollPhysics(),
                     shrinkWrap: true,

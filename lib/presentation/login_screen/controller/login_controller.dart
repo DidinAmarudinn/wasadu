@@ -3,9 +3,9 @@ import 'package:wasdu_mobile2/presentation/login_screen/models/login_model.dart'
 import 'package:flutter/material.dart';
 
 class LoginController extends GetxController {
-  TextEditingController vinputslotController = TextEditingController();
+  TextEditingController email = TextEditingController();
 
-  TextEditingController vinputslotOneController = TextEditingController();
+  TextEditingController password = TextEditingController();
 
   Rx<LoginModel> loginModelObj = LoginModel().obs;
 
@@ -17,7 +17,7 @@ class LoginController extends GetxController {
   @override
   void onClose() {
     super.onClose();
-    vinputslotController.dispose();
-    vinputslotOneController.dispose();
+    email.dispose();
+    password.dispose();
   }
 }

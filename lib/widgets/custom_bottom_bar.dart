@@ -13,18 +13,18 @@ class CustomBottomBar extends StatelessWidget {
       type: BottomBarEnum.Assigned,
       route: AppRoutes.assignedPagePnbpTabContainerScreen,
     ),
-    BottomMenuModel(
-      icon: ImageConstant.imgCheckmark,
-      title: "lbl_history".tr,
-      type: BottomBarEnum.History,
-      route: AppRoutes.historiesScreen,
-    ),
-    BottomMenuModel(
-      icon: ImageConstant.imgNotification,
-      title: "lbl_notification".tr,
-      type: BottomBarEnum.Notification,
-      route: AppRoutes.notificationsScreen,
-    ),
+    // BottomMenuModel(
+    //   icon: ImageConstant.imgCheckmark,
+    //   title: "lbl_history".tr,
+    //   type: BottomBarEnum.History,
+    //   route: AppRoutes.historiesScreen,
+    // ),
+    // BottomMenuModel(
+    //   icon: ImageConstant.imgNotification,
+    //   title: "lbl_notification".tr,
+    //   type: BottomBarEnum.Notification,
+    //   route: AppRoutes.notificationsScreen,
+    // ),
     BottomMenuModel(
       icon: ImageConstant.imgUser,
       title: "lbl_user".tr,

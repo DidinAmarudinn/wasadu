@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wasdu_mobile2/core/app_export.dart';
+import 'package:wasdu_mobile2/services/AuthService.dart';
 import 'package:wasdu_mobile2/widgets/custom_bottom_bar.dart';
 import 'package:wasdu_mobile2/widgets/custom_button.dart';
 
@@ -42,6 +43,15 @@ class UserProfileScreen extends StatelessWidget {
                       style: AppStyle.txtRobotoBold12
                           .copyWith(letterSpacing: 1.25, height: 1.33)),
                 ),
+                CustomButton(
+                    width: 295,
+                    text: "KELUAR".tr.toUpperCase(),
+                    margin:
+                        getMargin(left: 24, top: 171, right: 24, bottom: 20),
+                    variant: ButtonVariant.OutlineBlueA701,
+                    padding: ButtonPadding.PaddingAll18,
+                    fontStyle: ButtonFontStyle.RobotoMedium14,
+                    onTap: () => onTapBtnLogout(context))
               ],
             ),
           ),
@@ -53,6 +63,15 @@ class UserProfileScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  onTapBtnLogout(BuildContext context) async {
+    var logout = await AuthService().logout();
+    if (logout) {
+      Navigator.of(context).pop();
+      Navigator.of(context)
+          .pushNamedAndRemoveUntil(AppRoutes.loginScreen, (route) => false);
+    }
   }
 
   Widget getCurrentWidget(BottomBarEnum type) {
