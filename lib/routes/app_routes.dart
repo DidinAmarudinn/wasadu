@@ -134,7 +134,7 @@ class AppRoutes {
     ),
     GetPage(
       name: individualInfraTabContainerScreen,
-      page: () => IndividualInfraTabContainerScreen(),
+      page: () => IndividualInfraTabContainerScreen(null),
       bindings: [
         IndividualInfraTabContainerBinding(),
       ],

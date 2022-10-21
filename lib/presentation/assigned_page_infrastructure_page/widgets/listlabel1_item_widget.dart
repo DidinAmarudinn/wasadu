@@ -1,4 +1,6 @@
 import 'package:wasdu_mobile2/presentation/assigned_page_infrastructure_page/models/infra_model.dart';
+import 'package:wasdu_mobile2/presentation/bulk_infra_detail_screen/bulk_infra_detail_screen.dart';
+import 'package:wasdu_mobile2/presentation/individual_infra_tab_container_screen/individual_infra_tab_container_screen.dart';
 
 import '../controller/assigned_page_infrastructure_controller.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +9,8 @@ import 'package:wasdu_mobile2/core/app_export.dart';
 // ignore: must_be_immutable
 class Listlabel1ItemWidget extends StatelessWidget {
   final InfraData? infraData;
-  Listlabel1ItemWidget( this.infraData);
+
+  Listlabel1ItemWidget(this.infraData);
 
   var controller = Get.find<AssignedPageInfrastructureController>();
 
@@ -15,7 +18,7 @@ class Listlabel1ItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // onTapRowLabel(listlabel1ItemModelObj.auditType);
+        onTapRowLabel(infraData?.auditType ?? '', context);
       },
       child: Padding(
         padding: getPadding(
@@ -41,7 +44,7 @@ class Listlabel1ItemWidget extends StatelessWidget {
                     96.00,
                   ),
                   width: getSize(
-                    96.00,  
+                    96.00,
                   ),
                   fit: BoxFit.cover,
                 ),
@@ -92,11 +95,26 @@ class Listlabel1ItemWidget extends StatelessWidget {
     );
   }
 
-  onTapRowLabel(String? auditType) {
+  onTapRowLabel(String? auditType, BuildContext context) {
     if (auditType == 'bulk') {
-      Get.toNamed(AppRoutes.bulkInfraDetailScreen);
+      // Get.toNamed(AppRoutes.bulkInfraDetailScreen);
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => BulkInfraDetailScreen(),
+        ),
+      );
     } else if (auditType == 'individual') {
-      Get.toNamed(AppRoutes.individualInfraTabContainerScreen);
+     /* Get.toNamed(
+        AppRoutes.individualInfraTabContainerScreen,
+        arguments: IndividualInfraTabContainerScreen(infraData),
+      );*/
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => IndividualInfraTabContainerScreen(infraData),
+        ),
+      );
     }
   }
 }

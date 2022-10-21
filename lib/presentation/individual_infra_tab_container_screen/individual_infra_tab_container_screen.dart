@@ -1,3 +1,4 @@
+import '../assigned_page_infrastructure_page/models/infra_model.dart';
 import 'controller/individual_infra_tab_container_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:wasdu_mobile2/core/app_export.dart';
@@ -7,6 +8,10 @@ import 'package:wasdu_mobile2/widgets/custom_bottom_bar.dart';
 
 class IndividualInfraTabContainerScreen
     extends GetWidget<IndividualInfraTabContainerController> {
+  final InfraData? infraData;
+
+  IndividualInfraTabContainerScreen(this.infraData);
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -59,7 +64,7 @@ class IndividualInfraTabContainerScreen
                   ),
                   child: TabBarView(
                     children: [
-                      IndividualInfraDetailPage(),
+                      IndividualInfraDetailPage(infraData),
                       IndividualInfraDetailInfraListPage(),
                     ],
                   ),

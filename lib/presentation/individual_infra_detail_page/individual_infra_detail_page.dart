@@ -1,3 +1,4 @@
+import '../assigned_page_infrastructure_page/models/infra_model.dart';
 import '../individual_infra_detail_page/widgets/listlabel2_item_widget.dart';
 import 'controller/individual_infra_detail_controller.dart';
 import 'models/individual_infra_detail_model.dart';
@@ -7,6 +8,9 @@ import 'package:wasdu_mobile2/core/app_export.dart';
 
 // ignore_for_file: must_be_immutable
 class IndividualInfraDetailPage extends StatelessWidget {
+  final InfraData? infraData;
+  IndividualInfraDetailPage( this.infraData);
+
   IndividualInfraDetailController controller = Get.put(
       IndividualInfraDetailController(IndividualInfraDetailModel().obs));
 
@@ -46,7 +50,7 @@ class IndividualInfraDetailPage extends StatelessWidget {
                   alignment: Alignment.center,
                   child: Padding(
                       padding: getPadding(top: 5, bottom: 10),
-                      child: Text("PJ220000001".tr,
+                      child: Text(infraData?.uniqueCode ?? '',
                           overflow: TextOverflow.ellipsis,
                           textAlign: TextAlign.left,
                           style: AppStyle.txtRobotoRegular14
@@ -88,7 +92,7 @@ class IndividualInfraDetailPage extends StatelessWidget {
                               top: 6,
                             ),
                             child: Text(
-                              "lbl_gubernur".tr,
+                              infraData?.package?.constituency?.name ?? '',
                               overflow: TextOverflow.ellipsis,
                               textAlign: TextAlign.left,
                               style: AppStyle.txtRobotoRegular14.copyWith(
@@ -129,7 +133,7 @@ class IndividualInfraDetailPage extends StatelessWidget {
                               top: 7,
                             ),
                             child: Text(
-                              "msg_kab_malan_jab".tr,
+                              infraData?.location?.parentLocation?.name ?? '',
                               overflow: TextOverflow.ellipsis,
                               textAlign: TextAlign.left,
                               style: AppStyle.txtRobotoRegular14.copyWith(
@@ -222,7 +226,7 @@ class IndividualInfraDetailPage extends StatelessWidget {
                               top: 7,
                             ),
                             child: Text(
-                              "2020".tr,
+                              infraData?.package?.fiscalYear ?? '',
                               overflow: TextOverflow.ellipsis,
                               textAlign: TextAlign.left,
                               style: AppStyle.txtRobotoRegular14.copyWith(
@@ -274,7 +278,7 @@ class IndividualInfraDetailPage extends StatelessWidget {
                               top: 6,
                             ),
                             child: Text(
-                              "PT. WIKA".tr,
+                              infraData?.package?.provider?.name ?? '',
                               overflow: TextOverflow.ellipsis,
                               textAlign: TextAlign.left,
                               style: AppStyle.txtRobotoRegular14.copyWith(
@@ -315,7 +319,7 @@ class IndividualInfraDetailPage extends StatelessWidget {
                               top: 7,
                             ),
                             child: Text(
-                              "Irwanto".tr,
+                              infraData?.package?.ppk?.name ?? '',
                               overflow: TextOverflow.ellipsis,
                               textAlign: TextAlign.left,
                               style: AppStyle.txtRobotoRegular14.copyWith(
@@ -355,7 +359,7 @@ class IndividualInfraDetailPage extends StatelessWidget {
                     right: 9,
                   ),
                   child: Text(
-                    "msg_pemasangan_pene".tr,
+                    infraData?.package?.name ?? '',
                     maxLines: null,
                     textAlign: TextAlign.left,
                     style: AppStyle.txtRobotoRegular14.copyWith(

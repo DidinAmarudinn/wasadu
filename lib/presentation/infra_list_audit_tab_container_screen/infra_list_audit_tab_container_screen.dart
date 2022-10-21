@@ -173,7 +173,7 @@ class InfraListAuditTabContainerScreen
                                           controller:
                                               controller.vtabitemsController,
                                           children: [
-                                            IndividualInfraDetailPage(),
+                                            IndividualInfraDetailPage(null),
                                             IndividualInfraDetailInfraListPage()
                                           ],
                                         ),
