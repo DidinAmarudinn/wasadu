@@ -1,3 +1,6 @@
+import 'package:wasdu_mobile2/presentation/assigned_page_pnbp_page/models/assigned_pnbp_model.dart';
+
+import '../../assigned_page_detail_pnbp_screen/assigned_page_detail_pnbp_screen.dart';
 import '../controller/assigned_page_pnbp_controller.dart';
 import '../models/listlabel_item_model.dart';
 import 'package:flutter/material.dart';
@@ -5,19 +8,16 @@ import 'package:wasdu_mobile2/core/app_export.dart';
 
 // ignore: must_be_immutable
 class ListlabelItemWidget extends StatelessWidget {
-  ListlabelItemWidget(this.listlabelItemModelObj, {this.onTapRowlabel});
-
-  ListlabelItemModel listlabelItemModelObj;
+  final AssignedPNBPData? pnbpModel;
+  ListlabelItemWidget({this.pnbpModel});
 
   var controller = Get.find<AssignedPagePnbpController>();
-
-  VoidCallback? onTapRowlabel;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        onTapRowlabel!();
+        Navigator.push(context, MaterialPageRoute(builder: (_) => AssignedPageDetailPnbpScreen(pnbpModel)));
       },
       child: Padding(
         padding: getPadding(
@@ -40,10 +40,10 @@ class ListlabelItemWidget extends StatelessWidget {
                   child: CommonImageView(
                     imagePath: ImageConstant.imgImage,
                     height: getSize(
-                      96.00,
+                      75,
                     ),
                     width: getSize(
-                      96.00,
+                      75,
                     ),
                     fit: BoxFit.cover,
                   ),
@@ -60,7 +60,7 @@ class ListlabelItemWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        "msg_operasi_produks".tr,
+                        pnbpModel?.activityName ?? "",
                         overflow: TextOverflow.ellipsis,
                         textAlign: TextAlign.left,
                         style: AppStyle.txtRobotoMedium20.copyWith(
@@ -78,12 +78,13 @@ class ListlabelItemWidget extends StatelessWidget {
                             right: 2,
                           ),
                           child: Text(
-                            "msg_batubara_pt_b".tr,
-                            maxLines: null,
+                            "${pnbpModel?.commodity} ${pnbpModel?.skIup}",
+                            maxLines: 4,
                             textAlign: TextAlign.left,
+                            overflow: TextOverflow.ellipsis,
                             style: AppStyle.txtRobotoRegular14.copyWith(
-                              letterSpacing: 0.25,
-                              height: 1.43,
+                              letterSpacing: 0.15,
+                              height: 1,
                             ),
                           ),
                         ),

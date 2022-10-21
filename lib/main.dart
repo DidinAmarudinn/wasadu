@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wasdu_mobile2/presentation/assigned_page_infrastructure_page/models/infra_model.dart';
+import 'package:wasdu_mobile2/presentation/assigned_page_pnbp_page/controller/assigned_provider.dart';
+import 'package:wasdu_mobile2/services/PnbpService.dart';
 import 'package:wasdu_mobile2/services/infraService.dart';
 
 import 'core/app_export.dart';
@@ -31,7 +33,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => InfraProvider(InfraService()))
+        ChangeNotifierProvider(create: (_) => InfraProvider(InfraService())),
+        ChangeNotifierProvider(create: (_) => AsignedProvider(PnbpService())),
       ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,

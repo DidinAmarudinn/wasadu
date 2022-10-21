@@ -72,6 +72,7 @@ class AppRoutes {
     GetPage(
       name: loginScreen,
       page: () => LoginScreen(),
+      
       bindings: [
         LoginBinding(),
       ],
@@ -83,13 +84,14 @@ class AppRoutes {
         NavbottombarBinding(),
       ],
     ),
-    GetPage(
-      name: assignedPageDetailPnbpScreen,
-      page: () => AssignedPageDetailPnbpScreen(),
-      bindings: [
-        AssignedPageDetailPnbpBinding(),
-      ],
-    ),
+    // GetPage(
+    //   name: assignedPageDetailPnbpScreen,
+    //   arguments: Ob,
+    //   page: () => AssignedPageDetailPnbpScreen(),
+    //   bindings: [
+    //     AssignedPageDetailPnbpBinding(),
+    //   ],
+    // ),
     GetPage(
       name: detailViewPnbpInputOpiniScreen,
       page: () => DetailViewPnbpInputOpiniScreen(),
