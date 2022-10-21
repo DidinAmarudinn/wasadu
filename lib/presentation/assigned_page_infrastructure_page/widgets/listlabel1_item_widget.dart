@@ -1,13 +1,13 @@
+import 'package:wasdu_mobile2/presentation/assigned_page_infrastructure_page/models/infra_model.dart';
+
 import '../controller/assigned_page_infrastructure_controller.dart';
-import '../models/listlabel1_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:wasdu_mobile2/core/app_export.dart';
 
 // ignore: must_be_immutable
 class Listlabel1ItemWidget extends StatelessWidget {
-  Listlabel1ItemWidget(this.listlabel1ItemModelObj);
-
-  Listlabel1ItemModel listlabel1ItemModelObj;
+  final InfraData? infraData;
+  Listlabel1ItemWidget( this.infraData);
 
   var controller = Get.find<AssignedPageInfrastructureController>();
 
@@ -15,7 +15,7 @@ class Listlabel1ItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        onTapRowLabel!(listlabel1ItemModelObj.auditType);
+        // onTapRowLabel(listlabel1ItemModelObj.auditType);
       },
       child: Padding(
         padding: getPadding(
@@ -58,7 +58,7 @@ class Listlabel1ItemWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    '${listlabel1ItemModelObj.name}',
+                    infraData?.name ?? "",
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.left,
                     style: AppStyle.txtRobotoMedium20.copyWith(

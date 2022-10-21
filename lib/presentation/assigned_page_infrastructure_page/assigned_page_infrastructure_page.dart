@@ -1,3 +1,7 @@
+import 'package:provider/provider.dart';
+import 'package:wasdu_mobile2/core/constants/request_state.dart';
+import 'package:wasdu_mobile2/presentation/assigned_page_infrastructure_page/controller/infra_provider.dart';
+
 import '../assigned_page_infrastructure_page/widgets/listlabel1_item_widget.dart';
 import 'controller/assigned_page_infrastructure_controller.dart';
 import 'models/assigned_page_infrastructure_model.dart';
@@ -6,11 +10,26 @@ import 'package:flutter/material.dart';
 import 'package:wasdu_mobile2/core/app_export.dart';
 import 'package:wasdu_mobile2/widgets/custom_text_form_field.dart';
 
-// ignore_for_file: must_be_immutable
-class AssignedPageInfrastructurePage extends StatelessWidget {
-  AssignedPageInfrastructureController controller = Get.put(
+class AssignedPageInfrastructurePage extends StatefulWidget {
+  @override
+  State<AssignedPageInfrastructurePage> createState() =>
+      _AssignedPageInfrastructurePageState();
+}
+
+class _AssignedPageInfrastructurePageState
+    extends State<AssignedPageInfrastructurePage> {
+  final TextEditingController textEditingcontroller = TextEditingController();
+   AssignedPageInfrastructureController controller = Get.put(
       AssignedPageInfrastructureController(
           AssignedPageInfrastructureModel().obs));
+
+  @override
+  void initState() {
+    Future.microtask(() {
+      Provider.of<InfraProvider>(context, listen: false).getInfra();
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -216,22 +235,21 @@ class AssignedPageInfrastructurePage extends StatelessWidget {
                   top: 15,
                   right: 10,
                 ),
-                child: Obx(
-                  () => ListView.builder(
-                    physics: BouncingScrollPhysics(),
-                    shrinkWrap: true,
-                    itemCount: controller.assignedPageInfrastructureModelObj
-                        .value.listlabel1ItemList.length,
-                    itemBuilder: (context, index) {
-                      Listlabel1ItemModel model = controller
-                          .assignedPageInfrastructureModelObj
-                          .value
-                          .listlabel1ItemList[index];
-                      print(model);
-                      return Listlabel1ItemWidget(model);
-                    },
-                  ),
-                ),
+                child: Consumer<InfraProvider>(builder: (context, provider, _) {
+                  if (provider.state == RequestState.loaded) {
+                    return ListView.builder(
+                      physics: BouncingScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: provider.infraData?.data?.length,
+                      itemBuilder: (context, index) {
+                        return Listlabel1ItemWidget(
+                            provider.infraData?.data?[index]);
+                      },
+                    );
+                  } else {
+                    return CircularProgressIndicator();
+                  }
+                }),
               ),
             ],
           ),

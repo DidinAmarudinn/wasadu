@@ -8,7 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'AppException.dart';
 
 const String baseUrlLive = "";
-const String baseUrl = "http://10.0.2.2:8000/api";
+const String baseUrl = "https://wasdu.quqies.com/api";
 
 class Services {
   // apiGet(args) async {
@@ -105,8 +105,8 @@ class Services {
   dynamic _processResponse(http.Response response) {
     switch (response.statusCode) {
       case 200:
-        var responseJson = utf8.decode(response.bodyBytes);
-        return responseJson;
+        
+        return response;
         break;
       case 201:
         var responseJson = utf8.decode(response.bodyBytes);
