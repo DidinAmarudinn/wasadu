@@ -41,7 +41,7 @@ class Listlabel1ItemWidget extends StatelessWidget {
                     96.00,
                   ),
                   width: getSize(
-                    96.00,
+                    96.00,  
                   ),
                   fit: BoxFit.cover,
                 ),
@@ -58,7 +58,7 @@ class Listlabel1ItemWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    infraData?.name ?? "",
+                    infraData?.manualCode ?? "",
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.left,
                     style: AppStyle.txtRobotoMedium20.copyWith(
@@ -74,7 +74,7 @@ class Listlabel1ItemWidget extends StatelessWidget {
                       right: 10,
                     ),
                     child: Text(
-                      "msg_jawa_timur_mal".tr,
+                      "${infraData?.location?.name} ${infraData?.location?.parentLocation?.name}",
                       maxLines: null,
                       textAlign: TextAlign.left,
                       style: AppStyle.txtRobotoRegular14.copyWith(

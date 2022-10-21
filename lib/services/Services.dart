@@ -105,8 +105,8 @@ class Services {
   dynamic _processResponse(http.Response response) {
     switch (response.statusCode) {
       case 200:
-        
-        return response;
+        var responseJson = utf8.decode(response.bodyBytes);
+        return responseJson;
         break;
       case 201:
         var responseJson = utf8.decode(response.bodyBytes);
