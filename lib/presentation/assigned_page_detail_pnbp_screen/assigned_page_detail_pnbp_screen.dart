@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:intl/intl.dart';
+import 'package:wasdu_mobile2/presentation/assigned_page_pnbp_page/models/assigned_pnbp_model.dart';
 import 'package:wasdu_mobile2/widgets/custom_switch.dart';
 import 'package:wasdu_mobile2/widgets/custom_text_form_field.dart';
 
@@ -15,6 +16,10 @@ import 'package:wasdu_mobile2/widgets/custom_button.dart';
 
 class AssignedPageDetailPnbpScreen
     extends GetWidget<AssignedPageDetailPnbpController> {
+
+  final AssignedPNBPData? data;
+
+  AssignedPageDetailPnbpScreen(this.data);
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -60,7 +65,7 @@ class AssignedPageDetailPnbpScreen
                                       Padding(
                                           padding: getPadding(
                                               left: 32, top: 3, bottom: 1),
-                                          child: Text("msg_operasi_produks".tr,
+                                          child: Text(data?.activityName ?? '',
                                               overflow: TextOverflow.ellipsis,
                                               textAlign: TextAlign.left,
                                               style: AppStyle.txtRobotoMedium20
@@ -115,7 +120,7 @@ class AssignedPageDetailPnbpScreen
                                             padding: getPadding(
                                                 left: 18, top: 20, right: 18),
                                             child: Text(
-                                                "msg_operasi_produks2".tr,
+                                                data?.activityName ?? '',
                                                 overflow: TextOverflow.ellipsis,
                                                 textAlign: TextAlign.left,
                                                 style: AppStyle
@@ -140,7 +145,7 @@ class AssignedPageDetailPnbpScreen
                                         child: Padding(
                                             padding: getPadding(
                                                 left: 18, top: 6, right: 18),
-                                            child: Text("lbl_gubernur".tr,
+                                            child: Text(data?.governmentDepartment ?? '',
                                                 overflow: TextOverflow.ellipsis,
                                                 textAlign: TextAlign.left,
                                                 style: AppStyle
@@ -311,7 +316,7 @@ class AssignedPageDetailPnbpScreen
                                             padding: getPadding(
                                                 left: 21, top: 8, right: 21),
                                             child: Text(
-                                                "msg_78_kep_ka_dpm_p".tr,
+                                                data?.skIup ?? '',
                                                 overflow: TextOverflow.ellipsis,
                                                 textAlign: TextAlign.left,
                                                 style: AppStyle
@@ -338,7 +343,7 @@ class AssignedPageDetailPnbpScreen
                                         child: Padding(
                                             padding: getPadding(
                                                 left: 21, top: 6, right: 21),
-                                            child: Text("lbl_43560_47857".tr,
+                                            child: Text('${data?.startDate ?? ' '} - ${data?.endDate ?? ' '}',
                                                 overflow: TextOverflow.ellipsis,
                                                 textAlign: TextAlign.left,
                                                 style: AppStyle
@@ -346,60 +351,33 @@ class AssignedPageDetailPnbpScreen
                                                     .copyWith(
                                                         letterSpacing: 0.25,
                                                         height: 1.00)))),
-                                    Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Padding(
-                                            padding: getPadding(
-                                                left: 21, top: 27, right: 21),
-                                            child: Text(
-                                                "lbl_tanggal_berlaku".tr,
-                                                overflow: TextOverflow.ellipsis,
-                                                textAlign: TextAlign.left,
-                                                style: AppStyle
-                                                    .txtRobotoRegular16
-                                                    .copyWith(
-                                                        letterSpacing: 0.15,
-                                                        height: 1.00)))),
-                                    Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Padding(
-                                            padding: getPadding(
-                                                left: 21, top: 2, right: 21),
-                                            child: Text("lbl_43560_47857".tr,
-                                                overflow: TextOverflow.ellipsis,
-                                                textAlign: TextAlign.left,
-                                                style: AppStyle
-                                                    .txtRobotoRegular14
-                                                    .copyWith(
-                                                        letterSpacing: 0.25,
-                                                        height: 1.00)))),
-                                    Align(
-                                      alignment: Alignment.center,
-                                      child: Padding(
-                                        padding: getPadding(
-                                            left: 18, top: 26, right: 18),
-                                        child: Obx(
-                                          () => ListView.builder(
-                                            physics:
-                                                NeverScrollableScrollPhysics(),
-                                            shrinkWrap: true,
-                                            itemCount: controller
-                                                .assignedPageDetailPnbpModelObj
-                                                .value
-                                                .listlabelEightItemList
-                                                .length,
-                                            itemBuilder: (context, index) {
-                                              ListlabelEightItemModel model = controller
-                                                  .assignedPageDetailPnbpModelObj
-                                                  .value
-                                                  .listlabelEightItemList[index];
-                                              return ListlabelEightItemWidget(
-                                                  model);
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                    ),
+                                    // Align(
+                                    //   alignment: Alignment.center,
+                                    //   child: Padding(
+                                    //     padding: getPadding(
+                                    //         left: 18, top: 26, right: 18),
+                                    //     child: Obx(
+                                    //       () => ListView.builder(
+                                    //         physics:
+                                    //             NeverScrollableScrollPhysics(),
+                                    //         shrinkWrap: true,
+                                    //         itemCount: controller
+                                    //             .assignedPageDetailPnbpModelObj
+                                    //             .value
+                                    //             .listlabelEightItemList
+                                    //             .length,
+                                    //         itemBuilder: (context, index) {
+                                    //           ListlabelEightItemModel model = controller
+                                    //               .assignedPageDetailPnbpModelObj
+                                    //               .value
+                                    //               .listlabelEightItemList[index];
+                                    //           return ListlabelEightItemWidget(
+                                    //               model);
+                                    //         },
+                                    //       ),
+                                    //     ),
+                                    //   ),
+                                    // ),
                                     Align(
                                         alignment: Alignment.centerLeft,
                                         child: GestureDetector(

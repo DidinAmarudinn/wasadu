@@ -17,7 +17,13 @@ class ListlabelItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (_) => AssignedPageDetailPnbpScreen(pnbpModel)));
+        // Navigator.push(context, MaterialPageRoute(builder: (_) => AssignedPageDetailPnbpScreen(pnbpModel)));
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => AssignedPageDetailPnbpScreen(pnbpModel),
+          ),
+        );
       },
       child: Padding(
         padding: getPadding(
