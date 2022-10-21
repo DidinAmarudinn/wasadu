@@ -247,7 +247,7 @@ class _AssignedPageInfrastructurePageState
                       },
                     );
                   } else {
-                    return CircularProgressIndicator();
+                    return Center(child: CircularProgressIndicator());
                   }
                 }),
               ),

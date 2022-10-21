@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:wasdu_mobile2/presentation/assigned_page_pnbp_page/models/assigned_pnbp_model.dart';
 import 'package:wasdu_mobile2/services/BaseService.dart';
 import 'package:http/http.dart' as http;
 import 'package:wasdu_mobile2/services/Services.dart';
@@ -17,7 +18,7 @@ class PnbpService with BaseService {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var token = sharedPreferences.get('token');
     var response = await http.get(
-        Uri.parse("$baseUrl/my-tasks/infrastructures?per_page=10"),
+        Uri.parse("$baseUrl/my-tasks/pnbps?per_page=10"),
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
@@ -36,7 +37,7 @@ class PnbpService with BaseService {
       return;
     } else {
       final res = json.decode(response.body);
-      var result = InfraModel.fromJson(res);
+      var result = AssignedPNBPModel.fromJson(res);
       return result;
     }
   }
